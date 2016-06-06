@@ -1,12 +1,10 @@
 #lang racket
 
-; This script is supposed to be run under DrRacket.
-
 (require plot)
 (define f (λ (t) (vector t 
                          (/ 
-                          (* (sin (* 5 t)) (sin (* 5 t)))
-                          (* (sin (* 0.5 t)) (sin (* 0.5 t)))
+                          (sqr (sin (* 5 t)))
+                          (sqr (sin (* 0.5 t)))
                          )
                  )))
 
@@ -26,7 +24,7 @@
                    (parametric f t5 tmax)
                    ))
 
-(define wfilepath "./plot_prac_out.png")
+(define wfilepath "./n_emitter_interference_pattern.png")
 (plot-file to-render
       wfilepath
       'png
